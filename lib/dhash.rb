@@ -19,5 +19,6 @@ module Dhash extend self
         difference << (pixel_left > pixel_right)
       end
     end
+    difference.map {|d| d ? 1 : 0 }.join('').to_i(2)
   end
 end
