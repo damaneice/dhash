@@ -7,6 +7,7 @@ module Dhash extend self
   end
 
   def calculate(file, size = 8)
+    image = Vips::Image.new_from_file file
     image = image.resize((size + 1).fdiv(image.width), vscale: size.fdiv(image.height)).colourspace("b-w").flatten
     pixel_array =image.to_a.map &:flatten
     difference = []
